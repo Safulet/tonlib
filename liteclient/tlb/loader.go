@@ -30,9 +30,11 @@ type manualLoader interface {
 // Example:
 // _ Magic `tlb:"#deadbeef"
 // _ Magic `tlb:"$1101"
-func LoadFromCell(v any, loader *cell.LoadCell) error {
+// func LoadFromCell(v any, loader *cell.LoadCell) error { // go 1.18
+func LoadFromCell(v interface{}, loader *cell.LoadCell) error {
 	rv := reflect.ValueOf(v)
-	if rv.Kind() != reflect.Pointer || rv.IsNil() {
+	// if rv.Kind() != reflect.Pointer || rv.IsNil() {
+	if rv.Kind() != reflect.Ptr || rv.IsNil() {
 		return fmt.Errorf("v should be a pointer and not nil")
 	}
 	rv = rv.Elem()

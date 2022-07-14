@@ -8,13 +8,15 @@ import (
 	"reflect"
 )
 
-func Unmarshal(b []byte, o any) error {
+//func Unmarshal(b []byte, o any) error {
+func Unmarshal(b []byte, o interface{}) error {
 	buf := bytes.NewReader(b)
 	return decode(buf, reflect.ValueOf(o))
 }
 
 func decode(buf *bytes.Reader, val reflect.Value) error {
-	if val.Kind() == reflect.Pointer {
+	//if val.Kind() == reflect.Pointer {
+	if val.Kind() == reflect.Ptr {
 		val = val.Elem()
 	}
 	if !val.CanSet() {

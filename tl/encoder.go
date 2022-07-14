@@ -10,7 +10,8 @@ type MarshalerTL interface {
 	MarshalTL() ([]byte, error)
 }
 
-func Marshal(o any) ([]byte, error) {
+//func Marshal(o any) ([]byte, error) {
+func Marshal(o interface{}) ([]byte, error) {
 	if m, ok := o.(MarshalerTL); ok {
 		return m.MarshalTL()
 	}

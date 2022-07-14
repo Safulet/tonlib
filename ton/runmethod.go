@@ -35,7 +35,8 @@ func (c *APIClient) RunGetMethod(ctx context.Context, blockInfo *tlb.BlockInfo, 
 	builder := cell.BeginCell().MustStoreUInt(0, 16).MustStoreUInt(uint64(len(params)), 8)
 	if len(params) > 0 {
 		// we need to send in reverse order
-		reversed := make([]any, len(params))
+		//reversed := make([]any, len(params))
+		reversed := make([]interface{}, len(params))
 		for i := 0; i < len(params); i++ {
 			reversed[(len(params)-1)-i] = params[i]
 		}
@@ -170,7 +171,8 @@ func (c *APIClient) RunGetMethod(ctx context.Context, blockInfo *tlb.BlockInfo, 
 			return nil, err
 		}
 
-		var result []any
+		//var result []any
+		var result []interface{}
 
 		for i := 0; i < int(num); i++ {
 			// value type
@@ -267,7 +269,8 @@ func (c *APIClient) RunGetMethod(ctx context.Context, blockInfo *tlb.BlockInfo, 
 		}
 
 		// it comes in reverse order from lite server, reverse it back
-		reversed := make([]any, len(result))
+		//reversed := make([]any, len(result))
+		reversed := make([]interface{}, len(result))
 		for i := 0; i < len(result); i++ {
 			reversed[(len(result)-1)-i] = result[i]
 		}
