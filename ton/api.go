@@ -34,9 +34,8 @@ const (
 	_BlockHeader       int32 = 1965916697
 	_AllShardsInfo     int32 = 160425773
 
-	_BoolTrue  int32 = -1720552011
-	_BoolFalse int32 = -1132882121
-	_LSError   int32 = -1146494648
+	_BoolTrue int32 = -1720552011
+	_LSError  int32 = -1146494648
 )
 
 type LiteClient interface {

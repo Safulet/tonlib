@@ -2,7 +2,6 @@ package tlb
 
 import (
 	"errors"
-	"fmt"
 	"math"
 	"math/big"
 	"strconv"
@@ -53,7 +52,6 @@ func MustFromTON(val string) *Grams {
 	v, err := FromTON(val)
 	if err != nil {
 		panic(err)
-		return nil
 	}
 	return v
 }
@@ -124,7 +122,7 @@ func (g *Grams) LoadFromCell(loader *cell.LoadCell) error {
 }
 
 func (g *Grams) MarshalJSON() ([]byte, error) {
-	return []byte(fmt.Sprintf("%s", g.NanoTON().String())), nil
+	return []byte(g.NanoTON().String()), nil
 }
 
 func (g *Grams) String() string {

@@ -3,7 +3,6 @@ package liteclient
 type LiteResponse struct {
 	TypeID int32
 	Data   []byte
-	err    error
 }
 
 type LiteRequest struct {

@@ -239,7 +239,6 @@ func (c *LoadCell) LoadSlice(sz int) ([]byte, error) {
 
 		if leftSz < 8 {
 			b &= 0xFF << (8 - leftSz)
-			leftSz = 0
 			loadedData = append(loadedData, b)
 			break
 		}
